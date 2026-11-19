@@ -1,0 +1,69 @@
+/* Phone navigation shares the same retained screens and data pipeline. */
+.phone-bottom-nav,.phone-utilities{display:none}
+.app.phone-layout .workspace{width:100%;height:calc(100dvh - 62px - env(safe-area-inset-bottom));margin:0;transform:none!important}
+.app.phone-layout .phone-bottom-nav{position:fixed;z-index:100;bottom:0;left:0;right:0;height:calc(62px + env(safe-area-inset-bottom));padding:0 8px env(safe-area-inset-bottom);display:flex;align-items:center;justify-content:space-around;background:var(--bg,#fff);border-top:1px solid var(--line,#e9ebef)}
+.app.phone-layout .phone-bottom-nav button{appearance:none;border:0;background:transparent;color:var(--muted,#858a94);height:54px;min-width:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;touch-action:manipulation}
+.app.phone-layout .phone-bottom-nav button[aria-current=page]{color:#fb7299}
+.app.phone-layout .phone-bottom-nav .asset-icon{width:23px;height:23px}
+.app.phone-layout .phone-utilities{display:flex;gap:2px}
+.app.phone-layout .canvas-header{height:104px;min-height:104px;position:relative;padding:0 12px;display:flex;align-items:flex-end;padding-bottom:8px}
+.app.phone-layout .canvas-header .canvas-search{position:absolute!important;top:8px!important;left:12px!important;right:86px!important;width:auto!important;max-width:none!important;transform:none!important;height:38px;min-height:38px}
+.app.phone-layout .canvas-header .canvas-search input{height:36px;min-height:36px;font-size:14px;padding:0 12px}
+.app.phone-layout .canvas-header .canvas-search button{height:34px;width:32px}
+.app.phone-layout .phone-utilities{position:absolute;top:8px;right:8px;height:38px}
+.app.phone-layout .phone-utilities .tool{width:34px;height:38px}
+.app.phone-layout .canvas-header-actions{margin-left:auto;gap:0}
+.app.phone-layout .canvas-heading{max-width:calc(100% - 60px)}
+.app.phone-layout .canvas-context h1{font-size:18px}
+.app.phone-layout .canvas-content{padding:12px 10px 20px}
+.app.phone-layout .video-grid,.app.phone-layout .canvas-folder-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 10px}
+.app.phone-layout .canvas-stage{min-height:0}
+.app.phone-layout .media-tile h3{font-size:13px;line-height:20px}
+.app.phone-layout .search-result-tabs{height:40px;min-height:40px}
+.app.phone-layout .canvas-tabs{width:auto}
+.app.phone-layout .canvas-no-data{transform:translateY(-24px)}
+@media(prefers-color-scheme:dark){.app.phone-layout .phone-bottom-nav{background:var(--bg,#17181b)}}
+
+.app.phone-layout .global-search-header{height:56px;min-height:56px}
+.app.phone-layout .canvas-card-info{padding:8px}
+.app.phone-layout .card-title{font-size:13px;line-height:20px}
+
+/* Compact main navigation; secondary screens have their own back/header controls. */
+.app.phone-layout .workspace{height:calc(100dvh - 48px - env(safe-area-inset-bottom))}
+.app.phone-layout .phone-bottom-nav{height:calc(48px + env(safe-area-inset-bottom))}
+.app.phone-layout .phone-bottom-nav button{height:44px;flex:1;gap:0}
+.app.phone-layout.phone-secondary .phone-bottom-nav,.app.phone-layout.phone-keyboard .phone-bottom-nav{display:none}
+.app.phone-layout.phone-secondary .workspace,.app.phone-layout.phone-keyboard .workspace{height:100dvh}
+.app.phone-layout .canvas-header{height:56px;min-height:56px;padding:0 10px;align-items:center}
+.app.phone-layout .canvas-heading{display:flex;align-items:center;gap:6px;min-width:0}
+.app.phone-layout .canvas-header-actions{gap:2px}
+.app.phone-layout .canvas-header .phone-utilities{top:8px}
+.app.phone-layout .canvas-header .phone-utilities .tool{width:32px}
+.app.phone-layout .canvas-tabs .rubber-segment__item{padding:0 8px;min-width:36px}
+.app.phone-layout .canvas-header .canvas-context h1{font-size:17px}
+.app.phone-layout .canvas-header:has(.canvas-heading>.tool) .canvas-search{left:48px!important;right:10px!important}
+.app.phone-layout .canvas-header.has-search:not(.global-search-header){height:100px;min-height:100px;align-items:flex-end;padding-bottom:8px}
+.app.phone-layout .canvas-header.has-search:not(.global-search-header) .canvas-search{top:56px!important;height:36px}
+.app.phone-layout .canvas-header.has-search:not(.global-search-header) .canvas-heading,.app.phone-layout .canvas-header.has-search:not(.global-search-header) .canvas-header-actions{align-self:flex-start;margin-top:8px}
+.app.phone-layout .canvas-header-actions>.tool{width:30px;height:40px}
+
+/* A single phone header replaces the desktop absolute-positioned header. */
+.phone-header{flex:none;background:var(--bg);border-bottom:1px solid var(--line);width:100%;padding:0 10px}
+.phone-header-row{height:56px;display:flex;align-items:center;gap:4px;min-width:0}
+.phone-header-leading{display:flex;align-items:center;gap:4px;min-width:0;flex:1}
+.phone-header-leading h1{font-size:17px;line-height:24px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0;font-weight:600}
+.phone-header-leading>.tool{margin-left:-6px;flex:none}
+.phone-header-trailing{display:flex;align-items:center;flex:none;gap:0;margin-left:auto}
+.phone-header .tool{height:40px;width:30px;min-width:30px}
+.phone-header-row>.canvas-tabs{flex:none;min-width:0}
+.phone-header-row:has(>.canvas-tabs)>.phone-header-leading{flex:0 0 28px}
+.phone-header-row:has(>.canvas-tabs) .rubber-segment__item{min-width:32px;padding:0 6px;font-size:12px}
+.phone-header-row.with-global-search{display:grid;grid-template-columns:64px minmax(0,1fr) 64px;gap:0}
+.phone-header .canvas-search{position:relative!important;inset:auto!important;transform:none!important;width:100%!important;max-width:none!important;min-width:0;height:36px;min-height:36px;margin:0}
+.phone-header .canvas-search input{height:34px;font-size:14px;min-width:0;padding:0 10px;width:100%}
+.phone-header .canvas-search form{height:100%;display:flex;align-items:center;min-width:0}
+.phone-header .canvas-search button{width:28px;height:32px;min-width:28px}
+.phone-scope-search{width:100%;padding:0 2px 8px}
+.phone-header .suggestions{left:0;right:0;top:40px;width:100%}
+
+.phone-layout .story-card-entry{border:0;background:none;color:var(--muted);padding:0;margin-left:auto;width:24px;height:24px;flex:none;display:grid;place-items:center}.phone-layout .story-card-entry .asset-icon{width:18px;height:18px}

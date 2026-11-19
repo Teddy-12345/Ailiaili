@@ -1,0 +1,31 @@
+/* One fixed-size canvas moves with the drawer. Reserve breathing room once. */
+.canvas-v9 .workspace{width:calc(100% - 64px);margin-left:0;transform:translateX(32px);transition:transform 260ms cubic-bezier(.22,1,.36,1)}
+.canvas-v9.rail-open .workspace{margin-left:0;transform:translateX(64px)}
+.canvas-v9 .canvas-content{width:100%;max-width:1600px;margin:0 auto;padding:22px 24px 28px}
+.canvas-v9.canvas-v7 .canvas-header,.canvas-v9.canvas-v7:not(.rail-open) .canvas-header{padding-left:40px;padding-right:24px}
+.canvas-v9 .global-search-header{border-bottom:1px solid var(--line)}
+.canvas-v9.canvas-v7 .global-search-header .canvas-search,.canvas-v9.canvas-v7:not(.rail-open) .global-search-header .canvas-search{left:50%;transform:translateX(-50%);width:min(calc(100% - 48px),760px)}
+.canvas-v9 .rail-highlight{inset:0 auto auto 11px;width:42px;z-index:0}
+.canvas-v9 .rail nav,.canvas-v9 .rail-bottom{position:relative;z-index:1}
+.canvas-v9 [data-side-section="profile"] .asset-icon{width:26px;height:26px}
+.canvas-v9 .canvas-folder-poster{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.canvas-v9 .canvas-folder-poster img{position:absolute;width:100%;height:100%;inset:0;object-fit:cover}
+.canvas-v9 .profile-card-content{gap:14px;padding-top:8px}
+.canvas-v9 .profile-follow-badge{margin-left:auto;flex:0 0 70px;min-height:64px;border-radius:12px;background:#303238;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.canvas-v9 .profile-follow-badge strong{font-size:20px;line-height:24px;font-weight:600}
+.canvas-v9 .profile-follow-badge span{font-size:11px;color:#c0c2c8}
+.canvas-v9,.canvas-v9 *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.canvas-v9 input,.canvas-v9 textarea,.canvas-v9 .card-creator,.canvas-v9 .profile-card-line h1,.canvas-v9 .profile-sign p,.canvas-v9 .profile-official,.canvas-v9 .canvas-follow-info strong,.canvas-v9 .canvas-follow-info>span,.canvas-v9 .reader p{user-select:text;-webkit-user-select:text}
+.canvas-v9 img{-webkit-user-drag:none}
+@media(max-width:560px){
+ .canvas-v9 .canvas-content{padding:18px 14px 24px}
+ .canvas-v9.canvas-v7 .canvas-header,.canvas-v9.canvas-v7:not(.rail-open) .canvas-header{padding-left:28px;padding-right:24px;gap:6px}
+ .canvas-v9 .canvas-tabs{width:150px}
+ .canvas-v9 .canvas-header-actions .tool{width:28px;height:38px}
+ .canvas-v9 .canvas-tabs .rubber-segment__item{min-width:36px;padding:0 7px}
+ .canvas-v9 .profile-card-avatar{width:54px;height:54px;border-width:2px}
+ .canvas-v9 .profile-card-content{gap:10px}
+ .canvas-v9 .profile-follow-badge{flex-basis:58px;min-height:58px}
+ .canvas-v9 .profile-follow-badge strong{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){.canvas-v9 .workspace{transition:none}}

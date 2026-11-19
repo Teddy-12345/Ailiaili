@@ -1,0 +1,11 @@
+.canvas-first-loading{display:flex;justify-content:center;padding:32px;animation:loading-wait .25s both}
+@keyframes loading-wait{0%,90%{opacity:0}100%{opacity:1}}
+.canvas-no-data{position:fixed!important;top:50dvh!important;left:50vw!important;transform:translate(-50%,-50%);min-height:0!important;margin:0!important;width:max-content;pointer-events:none}
+.canvas-no-data svg{width:clamp(110px,20vmin,170px);height:clamp(110px,20vmin,170px)}
+.canvas-no-data>.asset-icon{width:clamp(110px,20vmin,170px)!important;height:clamp(110px,20vmin,170px)!important;opacity:.45}.canvas-no-data,.canvas-no-data *{user-select:none;-webkit-user-select:none}.canvas-no-data p{font-size:15px}
+
+/* Fast first paint: no per-image circular clip animation or animated shimmer. */
+.canvas-v9 .canvas-poster .poster-image{clip-path:none!important;transition:opacity 120ms ease-out!important;opacity:0}
+.canvas-v9 .canvas-poster.is-loaded .poster-image{opacity:1}
+.canvas-v9 .canvas-skeleton{animation:none;background:var(--surface)}
+.canvas-v9 .canvas-folder-card>strong{height:40px;line-height:20px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}

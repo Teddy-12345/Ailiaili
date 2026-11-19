@@ -1,0 +1,35 @@
+import 'package:PiliPlus/pages/common/common_list_controller.dart';
+import 'package:get/get.dart';
+import 'package:PiliPlus/common/widgets/clean_shell.dart';
+import 'package:material_ui/material_ui.dart';
+
+abstract class CommonSearchController<R, T> extends CommonListController<R, T> {
+  final editController = TextEditingController();
+  final focusNode = FocusNode();
+
+  void onClear() {
+    if (editController.text.isNotEmpty) {
+      editController.clear();
+    } else {
+      Get.back();
+    }
+  }
+
+  @override
+  Future<void> onRefresh() {
+    if (editController.value.text.isEmpty) {
+      return Future.syncValue(null);
+    }
+    return super.onRefresh();
+  }
+
+  @override
+  void onClose() {
+    CleanShell.handlers.removeWhere(
+      (key, value) => identical(value.owner, this),
+    );
+    editController.dispose();
+    focusNode.dispose();
+    super.onClose();
+  }
+}
